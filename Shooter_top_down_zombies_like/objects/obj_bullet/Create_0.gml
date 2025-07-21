@@ -1,0 +1,2 @@
+angle = direction; 
+vel = speed;
