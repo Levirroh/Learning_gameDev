@@ -1,15 +1,13 @@
 {
   "$GMObject":"",
-  "%Name":"obj_chest",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"obj_pistol",
+  "eventList":[],
   "managed":true,
-  "name":"obj_chest",
+  "name":"obj_pistol",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objetos",
-    "path":"folders/Objetos.yy",
+    "name":"items",
+    "path":"folders/Objetos/items.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -30,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_chest",
-    "path":"sprites/spr_chest/spr_chest.yy",
+    "name":"spr_pistol",
+    "path":"sprites/spr_pistol/spr_pistol.yy",
   },
   "spriteMaskId":null,
   "visible":true,

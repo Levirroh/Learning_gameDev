@@ -9,4 +9,4 @@ switch (side) {
 }
 
 instance_create_layer(zx, zy, "Zombies", obj_zombie);
-alarm[0] = irandom_range(30, 120);
+alarm[0] = irandom_range(60, 120);

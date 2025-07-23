@@ -1,15 +1,13 @@
 {
   "$GMObject":"",
-  "%Name":"obj_chest",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"obj_shotgun",
+  "eventList":[],
   "managed":true,
-  "name":"obj_chest",
+  "name":"obj_shotgun",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objetos",
-    "path":"folders/Objetos.yy",
+    "name":"items",
+    "path":"folders/Objetos/items.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -30,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_chest",
-    "path":"sprites/spr_chest/spr_chest.yy",
+    "name":"spr_shotgun",
+    "path":"sprites/spr_shotgun/spr_shotgun.yy",
   },
   "spriteMaskId":null,
   "visible":true,
