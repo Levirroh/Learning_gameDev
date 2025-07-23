@@ -1,0 +1,1 @@
+equiped_gun = obj_shotgun;

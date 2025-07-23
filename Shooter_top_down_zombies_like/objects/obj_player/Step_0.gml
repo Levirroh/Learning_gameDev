@@ -46,11 +46,3 @@ if(vida <= 0){
 	ini_close();    
 	room_goto(Menu);
 }
-
-
-
-if (instance_exists(gun_instance)) {
-    gun_instance.x = x + correction_shot_x;
-    gun_instance.y = y + correction_shot_y;
-    gun_instance.image_angle = angle;
-}

@@ -1,10 +1,6 @@
 angle = 180;
-shot = false
-correction_shot_y = 0;
-correction_shot_x = 0;
 vida = 10;
-equiped_gun = spr_pistol;
-gun_instance = instance_create_layer(x, y, "Gun", equiped_gun);
-correction_gun_x = 0;
-correction_gun_y = 0;
+equiped_gun = obj_pistol;
 hit_timer = 0;
+equiped_gun = instance_create_layer(x, y, "Gun", obj_pistol);
+equiped_gun.owner = id;

@@ -27,7 +27,7 @@
   ],
   "name":"spr_bullet",
   "nineSlice":null,
-  "origin":0,
+  "origin":1,
   "parent":{
     "name":"Shooter_top_down_zombies_like",
     "path":"Shooter_top_down_zombies_like.yyp",
@@ -93,7 +93,7 @@
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":0,
+    "xorigin":32,
     "yorigin":0,
   },
   "swatchColours":null,
