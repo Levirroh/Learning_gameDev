@@ -22,11 +22,13 @@ if (shot == true) {
 	            correction_shot_y = +12;
 	            break;
 	    }
-
-	    var b_shot = instance_create_layer(x + correction_shot_x, y + correction_shot_y, "Bullets", obj_bullet);
-	    b_shot.direction = angle - 90;
-		b_shot.image_angle = b_shot.direction;
-	    b_shot.speed = 5;         
+		
+		for(var i = 0; i < 5; i++){
+			var b_shot = instance_create_layer(x + correction_shot_x, y + correction_shot_y, "Bullets", obj_bullet);
+		    b_shot.direction = angle - 94 + i*2;
+			b_shot.image_angle = b_shot.direction;
+		    b_shot.speed = 5;
+		}         
 
 	    shot = false;
 	}
