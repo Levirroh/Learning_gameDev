@@ -44,6 +44,7 @@
     {"id":{"name":"protagonist","path":"objects/protagonist/protagonist.yy",},},
     {"id":{"name":"Game","path":"rooms/Game/Game.yy",},},
     {"id":{"name":"Menu","path":"rooms/Menu/Menu.yy",},},
+    {"id":{"name":"bg_game","path":"sprites/bg_game/bg_game.yy",},},
     {"id":{"name":"bg_menu","path":"sprites/bg_menu/bg_menu.yy",},},
     {"id":{"name":"spr_protagonist","path":"sprites/spr_protagonist/spr_protagonist.yy",},},
     {"id":{"name":"Sprite3","path":"sprites/Sprite3/Sprite3.yy",},},
