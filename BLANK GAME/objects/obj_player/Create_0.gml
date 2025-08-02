@@ -1,0 +1,9 @@
+//inherit the parent event
+ 
+event_inherited();
+
+max_life = 10;
+current_life = max_life;
+
+max_velx = 4;
+max_vely = 6;
