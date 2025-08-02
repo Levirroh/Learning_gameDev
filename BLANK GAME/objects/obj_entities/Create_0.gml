@@ -9,3 +9,5 @@ max_vely = 1;
 mass = 1;
 
 attack = 1; 
+
+x_scale = 1;
