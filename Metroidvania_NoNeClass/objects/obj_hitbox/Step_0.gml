@@ -7,9 +7,10 @@ if(damaged){
 	if(damaged.id != parent_entity){
 		if(damaged.current_life > 0){
 			damaged.state = "hit";
+			damaged.image_index = 0;
+			damaged.current_life -= damage;
+			instance_destroy();	
 		}
-		damaged.current_life -= damage;
-		instance_destroy();
 	}
 }
 //instance_destroy();

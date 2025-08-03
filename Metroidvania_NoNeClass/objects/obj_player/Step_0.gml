@@ -1,13 +1,24 @@
 //variables
-#region variables
-var right, left, jump, attacking;
+#region variables & inputs
+var right, left, jump, attacking, dash;
 var ground = place_meeting(x, y + 1, obj_wall)
 
 right = keyboard_check(ord("D"));
 left = keyboard_check(ord("A"));
 jump = keyboard_check_pressed(vk_space);
 attacking = keyboard_check(ord("J"));
+attacking = keyboard_check(ord("J"));
+dash = keyboard_check(vk_lshift);
 #endregion	
+
+#region  buffer
+
+if(attack_buffer > 0){
+	attack_buffer -= 4;
+}
+show_debug_message(attack_buffer);
+
+#endregion
 
 #region movement
 // movement 
@@ -42,7 +53,10 @@ switch(state){
 		} else if(attacking){
 			state = "attack";
 			image_index = 0;
-		} 
+		} else if (dash){
+			state = "dash";
+			image_index = 0;	
+		}
 		
 		
 		break;
@@ -64,7 +78,10 @@ switch(state){
 		} else if(attacking){
 			state = "attack";
 			image_index = 0;
-		} 
+		}  else if (dash){
+			state = "dash";
+			image_index = 0;	
+		}
 			
 		break;
 	#endregion 
@@ -108,18 +125,28 @@ switch(state){
 			damage.parent_entity = id;
 			can_attack = false;
 		}
-		
+
+		// using buffer
+		if(attacking && combo < 2){
+			attack_buffer = room_spd;
+		}
+
+
 		//combo animations
-		if(attacking && combo < 2 && image_index >= image_number - 1){
+		if(attack_buffer && combo < 2 && image_index >= image_number - 1){
 			combo++;
-			attack_mult += .5;
+			image_index	= 0;
 			can_attack = true;
+			attack_mult += .5;
 			if(damage){
 				instance_destroy(damage, false);
 				damage = noone;
 			}
-			image_index = 0; // reinicia a animação dos ataques
+		
+			attack_buffer = 0;
 		}
+		
+		
 		
 		//changing state when animation stops		
 		if(image_index > image_number-1){
@@ -132,12 +159,34 @@ switch(state){
 				damage = noone;
 			}
 		}
+		if (dash){
+			state = "dash";
+			image_index = 0;
+			combo = 0;
+			if(damage){
+				instance_destroy(damage, false);
+				damage = noone;
+			}
+		}
 		
 	break;
+	#endregion
+	#region dash
+	case "dash":
+		sprite_index = spr_player_dash;
+		//changing state
+		
+		//speed
+		x_vel = image_xscale * dash_vel;
+		
+		if(image_index >= image_number - 1){
+			state = "idle";
+		}
 	#endregion
 }
 
 if(keyboard_check(vk_enter)) room_restart();
+if(keyboard_check(vk_escape)) game_end();
 
 
 

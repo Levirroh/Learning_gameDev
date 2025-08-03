@@ -25,7 +25,7 @@
   ],
   "name":"spr_player_moving",
   "nineSlice":null,
-  "origin":7,
+  "origin":9,
   "parent":{
     "name":"moving",
     "path":"folders/Sprites/player/moving.yy",
@@ -86,7 +86,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":25,
-    "yorigin":37,
+    "yorigin":36,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

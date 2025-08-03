@@ -22,6 +22,7 @@
     {"name":"player","order":1,"path":"folders/Sprites/player.yy",},
     {"name":"air","order":4,"path":"folders/Sprites/player/air.yy",},
     {"name":"attack","order":5,"path":"folders/Sprites/player/attack.yy",},
+    {"name":"dash","order":6,"path":"folders/Sprites/player/dash.yy",},
     {"name":"idle","order":1,"path":"folders/Sprites/player/idle.yy",},
     {"name":"moving","order":2,"path":"folders/Sprites/player/moving.yy",},
   ],

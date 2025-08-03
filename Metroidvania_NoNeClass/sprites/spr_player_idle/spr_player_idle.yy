@@ -26,7 +26,7 @@
   ],
   "name":"spr_player_idle",
   "nineSlice":null,
-  "origin":7,
+  "origin":9,
   "parent":{
     "name":"idle",
     "path":"folders/Sprites/player/idle.yy",
@@ -90,7 +90,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":25,
-    "yorigin":37,
+    "yorigin":36,
   },
   "swatchColours":null,
   "swfPrecision":0.5,
