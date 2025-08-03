@@ -11,3 +11,10 @@ max_vely = 6;
 mass = 1;
 
 show_state = true;
+
+attack = 1;
+sword_attack = 2;
+
+combo = 0;
+
+damage = noone;

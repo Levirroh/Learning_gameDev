@@ -80,17 +80,38 @@ switch(state){
 		 
 		break;
 	case "attack":
-	
-		sprite_index = spr_player_attack_01;
+		if(combo == 0){
+			sprite_index = spr_player_attack_01;
+		} else if (combo == 1){
+			sprite_index = spr_player_attack_02;
+		} else if (combo == 2){
+			sprite_index = spr_player_attack_03;
+		}
+		
+		//creating hitbox
+		if(image_index >= 2 && damage == noone){
+			damage = instance_create_layer(x + sprite_width/2, y - sprite_height/2, layer, obj_hitbox);
+			damage.damage = sword_attack;
+			damage.parent_entity = id;
+		}
+		
+		//combo animations
+		if(attack && combo < 2 && image_index >= image_number - 1){
+			combo++;
+			image_index = 0; // reinicia a animação dos ataques
+		}
 		
 		//changing state when animation stops
 		
 		if(image_index > image_number-1){
 			state = "idle";
+			combo = 0;
 		}
 		
 		break;
 }
+
+if(keyboard_check(vk_enter)) room_restart();
 
 
 

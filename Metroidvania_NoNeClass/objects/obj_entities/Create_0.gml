@@ -12,7 +12,7 @@ attack = 1;
 
 x_scale = 1;
 
-show_state = false
+show_state = true
 
 img_spd = 80;
 
