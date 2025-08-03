@@ -5,6 +5,7 @@ var ground = place_meeting(x, y + 1, obj_wall)
 right = keyboard_check(ord("D"));
 left = keyboard_check(ord("A"));
 jump = keyboard_check_pressed(vk_space);
+attack = keyboard_check(ord("J"));
 
 // movement 
 x_vel = (right - left) * max_velx;
@@ -28,11 +29,14 @@ switch(state){
 		//moving
 		if(right || left){
 			state = "moving"
-		} 
-		
-		if(jump){
+			image_index = 0;
+		} else if(jump || y_vel != 0){
 			state = "jump";
 			y_vel = -max_vely;
+			image_index = 0;
+		} else if(attack){
+			state = "attack";
+			image_index = 0;
 		} 
 		
 		
@@ -48,13 +52,17 @@ switch(state){
 			x_vel = 0;
 		}else if(jump){
 			state = "jump";
+			image_index = 0;
 			y_vel = -max_vely;
+		} else if(attack){
+			state = "attack";
+			image_index = 0;
 		} 
-		
+			
 		break;
 	case "jump":
 		if(y_vel > 0){ // falling
-			sprite_index = spr_player_falling;
+			sprite_index = spr_player_falling 
 		} else {
 			//making animation not repeat itself if theres more than 1 frame
 			sprite_index = spr_player_jump;
@@ -70,6 +78,17 @@ switch(state){
 			y_vel = 0;
 		}
 		 
+		break;
+	case "attack":
+	
+		sprite_index = spr_player_attack_01;
+		
+		//changing state when animation stops
+		
+		if(image_index > image_number-1){
+			state = "idle";
+		}
+		
 		break;
 }
 
