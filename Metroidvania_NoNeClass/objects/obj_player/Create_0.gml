@@ -8,6 +8,6 @@ current_life = max_life;
 max_velx = 4;
 max_vely = 6;
 
-mass = 1.5;
+mass = 1;
 
 show_state = true;

@@ -17,13 +17,15 @@
     {"name":"Sprites","order":1,"path":"folders/Sprites.yy",},
     {"name":"misc","order":3,"path":"folders/Sprites/misc.yy",},
     {"name":"player","order":1,"path":"folders/Sprites/player.yy",},
-    {"name":"moving","order":2,"path":"folders/Sprites/player/moving.yy",},
+    {"name":"air","order":4,"path":"folders/Sprites/player/air.yy",},
     {"name":"idle","order":1,"path":"folders/Sprites/player/idle.yy",},
+    {"name":"moving","order":2,"path":"folders/Sprites/player/moving.yy",},
   ],
   "ResourceOrderSettings":[
     {"name":"obj_entities","order":1,"path":"objects/obj_entities/obj_entities.yy",},
     {"name":"obj_wall","order":2,"path":"objects/obj_wall/obj_wall.yy",},
     {"name":"spr_player_colision","order":3,"path":"sprites/spr_player_colision/spr_player_colision.yy",},
+    {"name":"spr_player_falling","order":1,"path":"sprites/spr_player_falling/spr_player_falling.yy",},
     {"name":"spr_player_idle_weapon","order":1,"path":"sprites/spr_player_idle_weapon/spr_player_idle_weapon.yy",},
   ],
 }

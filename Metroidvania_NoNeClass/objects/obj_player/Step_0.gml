@@ -6,7 +6,7 @@ right = keyboard_check(ord("D"));
 left = keyboard_check(ord("A"));
 jump = keyboard_check_pressed(vk_space);
 
-// movement
+// movement 
 x_vel = (right - left) * max_velx;
 
 //gravity
@@ -14,12 +14,6 @@ if(!ground){
 	if(y_vel < max_vely * 2){
 		y_vel += GRAVITY * mass;
 	}
-}
-else //jump if in ground
-{
-	 if(jump){
-		y_vel = -max_vely
-	 }
 }
 
 
@@ -36,6 +30,11 @@ switch(state){
 			state = "moving"
 		} 
 		
+		if(jump){
+			state = "jump";
+			y_vel = -max_vely;
+		} 
+		
 		
 		break;
 	case "moving":
@@ -47,10 +46,31 @@ switch(state){
 		if(abs(x_vel == 0)){
 			state = "idle";
 			x_vel = 0;
-		}
+		}else if(jump){
+			state = "jump";
+			y_vel = -max_vely;
+		} 
 		
 		break;
+	case "jump":
+		if(y_vel > 0){ // falling
+			sprite_index = spr_player_falling;
+		} else {
+			//making animation not repeat itself if theres more than 1 frame
+			sprite_index = spr_player_jump;
+			if(image_index >= image_number -1){
+				image_index = image_number -1;
+			}
+		}
 		
+		//condition to change state
+		
+		if(ground){
+			state = "idle";
+			y_vel = 0;
+		}
+		 
+		break;
 }
 
 
