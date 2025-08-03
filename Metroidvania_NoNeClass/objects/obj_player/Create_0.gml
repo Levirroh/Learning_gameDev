@@ -12,9 +12,13 @@ mass = 1;
 
 show_state = true;
 
-attack = 1;
-sword_attack = 2;
-
 combo = 0;
 
 damage = noone;
+
+can_attack = true;
+
+attack_mult = 1; 
+
+
+attack = 2;

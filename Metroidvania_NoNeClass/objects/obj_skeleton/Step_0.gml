@@ -27,12 +27,13 @@ switch (state){
 		sprite_index = spr_skeleton_idle
 		
 		//change state conditions
+		/*
 		if(position_meeting(mouse_x, mouse_y, self)){
 			if(mouse_check_button_pressed(mb_right)){
 				current_life -= 2;
 				state = "hit";
 			}
-		}
+		}*/
 		
 		
 		break;

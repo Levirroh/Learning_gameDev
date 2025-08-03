@@ -1,12 +1,15 @@
 //variables
-var right, left, jump, attack;
+#region variables
+var right, left, jump, attacking;
 var ground = place_meeting(x, y + 1, obj_wall)
 
 right = keyboard_check(ord("D"));
 left = keyboard_check(ord("A"));
 jump = keyboard_check_pressed(vk_space);
-attack = keyboard_check(ord("J"));
+attacking = keyboard_check(ord("J"));
+#endregion	
 
+#region movement
 // movement 
 x_vel = (right - left) * max_velx;
 
@@ -17,9 +20,11 @@ if(!ground){
 	}
 }
 
+#endregion
 
 //initial state machine
 switch(state){
+	#region idle
 	case "idle":
 		//idle state
 		sprite_index = spr_player_idle;
@@ -34,13 +39,15 @@ switch(state){
 			state = "jump";
 			y_vel = (-max_vely * jump); // if pressed jump = 1 else it's 0, than it's falling
 			image_index = 0;
-		} else if(attack){
+		} else if(attacking){
 			state = "attack";
 			image_index = 0;
 		} 
 		
 		
 		break;
+	#endregion
+	#region moving
 	case "moving":
 		//moving state
 		sprite_index = spr_player_moving;
@@ -54,12 +61,14 @@ switch(state){
 			state = "jump";
 			image_index = 0;
 			y_vel = -max_vely;
-		} else if(attack){
+		} else if(attacking){
 			state = "attack";
 			image_index = 0;
 		} 
 			
 		break;
+	#endregion 
+	#region jump
 	case "jump":
 		if(y_vel > 0){ // falling
 			sprite_index = spr_player_falling 
@@ -79,7 +88,10 @@ switch(state){
 		}
 		 
 		break;
+	#endregion
+	#region	attack
 	case "attack":
+		#region	combo
 		if(combo == 0){
 			sprite_index = spr_player_attack_01;
 		} else if (combo == 1){
@@ -87,28 +99,42 @@ switch(state){
 		} else if (combo == 2){
 			sprite_index = spr_player_attack_03;
 		}
+		#endregion
 		
 		//creating hitbox
-		if(image_index >= 2 && damage == noone){
+		if(image_index >= 2 && damage == noone && can_attack){
 			damage = instance_create_layer(x + sprite_width/2, y - sprite_height/2, layer, obj_hitbox);
-			damage.damage = sword_attack;
+			damage.damage = attack * attack_mult;
 			damage.parent_entity = id;
+			can_attack = false;
 		}
 		
 		//combo animations
-		if(attack && combo < 2 && image_index >= image_number - 1){
+		if(attacking && combo < 2 && image_index >= image_number - 1){
 			combo++;
+			attack_mult += .5;
+			can_attack = true;
+			if(damage){
+				instance_destroy(damage, false);
+				damage = noone;
+			}
 			image_index = 0; // reinicia a animação dos ataques
 		}
 		
-		//changing state when animation stops
-		
+		//changing state when animation stops		
 		if(image_index > image_number-1){
 			state = "idle";
 			combo = 0;
+			can_attack = true;
+			attack_mult = 1;
+			if(damage){
+				instance_destroy(damage, false);
+				damage = noone;
+			}
 		}
 		
-		break;
+	break;
+	#endregion
 }
 
 if(keyboard_check(vk_enter)) room_restart();
