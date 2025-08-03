@@ -10,3 +10,5 @@ if(position_meeting(mouse_x, mouse_y, id)){
 		show_state = !show_state;
 	}
 }
+
+image_speed = img_spd / game_get_speed(gamespeed_fps);

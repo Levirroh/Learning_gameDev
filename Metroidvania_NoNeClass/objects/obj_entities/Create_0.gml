@@ -12,7 +12,8 @@ attack = 1;
 
 x_scale = 1;
 
-show_state = false;
+show_state = false
 
+img_spd = 80;
 
 state = "idle"; // can be numbers also

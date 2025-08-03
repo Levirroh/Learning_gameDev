@@ -32,7 +32,7 @@ switch(state){
 			image_index = 0;
 		} else if(jump || y_vel != 0){
 			state = "jump";
-			y_vel = -max_vely;
+			y_vel = (-max_vely * jump); // if pressed jump = 1 else it's 0, than it's falling
 			image_index = 0;
 		} else if(attack){
 			state = "attack";
