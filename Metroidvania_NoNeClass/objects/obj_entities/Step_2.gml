@@ -1,4 +1,3 @@
-show_debug_message("Final Step está funcionando");
 //colision system
 var xVel = sign(x_vel)
 var yVel = sign(y_vel)

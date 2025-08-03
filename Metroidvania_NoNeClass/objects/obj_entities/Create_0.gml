@@ -11,3 +11,8 @@ mass = 1;
 attack = 1; 
 
 x_scale = 1;
+
+show_state = false;
+
+
+state = "idle"; // can be numbers also

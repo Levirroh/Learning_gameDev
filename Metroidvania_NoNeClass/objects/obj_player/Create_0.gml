@@ -9,3 +9,5 @@ max_velx = 4;
 max_vely = 6;
 
 mass = 1.5;
+
+show_state = true;

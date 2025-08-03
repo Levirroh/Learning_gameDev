@@ -23,6 +23,36 @@ else //jump if in ground
 }
 
 
+//initial state machine
+switch(state){
+	case "idle":
+		//idle state
+		sprite_index = spr_player_idle;
+		
+		//condition to change state
+		
+		//moving
+		if(right || left){
+			state = "moving"
+		} 
+		
+		
+		break;
+	case "moving":
+		//moving state
+		sprite_index = spr_player_moving;
+		
+		//change state condition
+		//idle
+		if(abs(x_vel == 0)){
+			state = "idle";
+			x_vel = 0;
+		}
+		
+		break;
+		
+}
+
 
 
 
