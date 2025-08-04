@@ -16,4 +16,6 @@ show_state = true
 
 img_spd = 80;
 
+room_spd = game_get_speed(gamespeed_fps);
+
 state = "idle"; // can be numbers also

@@ -16,7 +16,6 @@ dash = keyboard_check(vk_lshift);
 if(attack_buffer > 0){
 	attack_buffer -= 4;
 }
-show_debug_message(attack_buffer);
 
 #endregion
 
@@ -71,10 +70,10 @@ switch(state){
 		if(abs(x_vel == 0)){
 			state = "idle";
 			x_vel = 0;
-		}else if(jump){
+		} else if(jump || y_vel != 0){
 			state = "jump";
+			y_vel = (-max_vely * jump);
 			image_index = 0;
-			y_vel = -max_vely;
 		} else if(attacking){
 			state = "attack";
 			image_index = 0;
@@ -142,7 +141,6 @@ switch(state){
 				instance_destroy(damage, false);
 				damage = noone;
 			}
-		
 			attack_buffer = 0;
 		}
 		
@@ -167,6 +165,10 @@ switch(state){
 				instance_destroy(damage, false);
 				damage = noone;
 			}
+		} else if(jump || y_vel != 0){
+			state = "jump";
+			y_vel = (-max_vely * jump); // if pressed jump = 1 else it's 0, than it's falling
+			image_index = 0;
 		}
 		
 	break;
@@ -175,10 +177,18 @@ switch(state){
 	case "dash":
 		sprite_index = spr_player_dash;
 		//changing state
+		if(jump || y_vel != 0){
+			state = "jump";
+			y_vel = (-max_vely * jump);
+			image_index = 0;
+		}
+		
+		
+
 		
 		//speed
 		x_vel = image_xscale * dash_vel;
-		
+
 		if(image_index >= image_number - 1){
 			state = "idle";
 		}

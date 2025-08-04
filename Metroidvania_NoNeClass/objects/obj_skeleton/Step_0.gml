@@ -1,3 +1,4 @@
+#region variables
 var ground = place_meeting(x, y+1, obj_wall);
 
 //gravity
@@ -15,12 +16,12 @@ if(keyboard_check_pressed(ord("I"))){
 	state = "dead";
 }
 */
-
-
+#endregion
 //state machine
-
 switch (state){
+	#region idle
 	case "idle":
+		timer_state++;
 		if(sprite_index != spr_skeleton_idle){
 			image_index	= 0;
 		}
@@ -35,8 +36,35 @@ switch (state){
 			}
 		}*/
 		
+		//going to walk state
+		if(random(timer_state) > 300){// every frame, the chance of changing state gets higher
+			state = choose("walking", "idle", "walking");
+			timer_state = 0;
+		}
+		
 		
 		break;
+	#endregion
+	#region walking
+	case "walking":
+		timer_state++;
+		if(sprite_index != spr_skeleton_walk){
+			image_index = 0;
+		}
+	
+		sprite_index = spr_skeleton_walk;
+		
+		//leaving state
+		if(random(timer_state) > 300){
+			state = choose("walking", "idle", "idle");
+			timer_state = 0;
+		}
+		
+		
+		break;
+		
+	#endregion
+	#region taking hit
 	case "hit":
 		if(sprite_index != spr_skeleton_hit){// is not on hit state yet, frame must be 0
 			image_index	= 0;
@@ -55,6 +83,8 @@ switch (state){
 		
 		
 		break;
+	#endregion
+	#region dead
 	case "dead":
 		if(sprite_index != spr_skeleton_dead){
 			image_index	= 0;
@@ -74,4 +104,7 @@ switch (state){
 		}
 		
 		break;	
+	#endregion
 }
+
+show_debug_message(timer_state)
