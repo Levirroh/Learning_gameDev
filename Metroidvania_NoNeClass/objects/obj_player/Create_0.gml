@@ -1,5 +1,10 @@
+// creating camera
+var cam = instance_create_layer(x,y,layer, obj_camera);
+cam.target = id;
+
+
 //inherit the parent event
- 
+
 event_inherited();
 room_spd = game_get_speed(gamespeed_fps);
 max_life = 10;

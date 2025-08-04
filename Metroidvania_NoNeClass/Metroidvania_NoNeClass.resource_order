@@ -27,6 +27,7 @@
     {"name":"moving","order":2,"path":"folders/Sprites/player/moving.yy",},
   ],
   "ResourceOrderSettings":[
+    {"name":"obj_camera","order":5,"path":"objects/obj_camera/obj_camera.yy",},
     {"name":"obj_entities","order":1,"path":"objects/obj_entities/obj_entities.yy",},
     {"name":"obj_hitbox","order":4,"path":"objects/obj_hitbox/obj_hitbox.yy",},
     {"name":"obj_wall","order":2,"path":"objects/obj_wall/obj_wall.yy",},
