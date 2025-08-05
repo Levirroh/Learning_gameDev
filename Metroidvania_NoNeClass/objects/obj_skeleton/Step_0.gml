@@ -5,6 +5,11 @@ var ground = place_meeting(x, y+1, obj_wall);
 if(!ground){
 	y_vel += GRAVITY * mass;
 }
+//forcing states
+
+if(keyboard_check_pressed(ord("E"))){
+	state = "attack";
+}
 /*
 if(keyboard_check_pressed(ord("P"))){
 	state = "idle";
@@ -16,11 +21,13 @@ if(keyboard_check_pressed(ord("I"))){
 	state = "dead";
 }
 */
+
 #endregion
 //state machine
 switch (state){
 	#region idle
 	case "idle":
+		x_vel = 0;
 		timer_state++;
 		if(sprite_index != spr_skeleton_idle){
 			image_index	= 0;
@@ -50,6 +57,7 @@ switch (state){
 		timer_state++;
 		if(sprite_index != spr_skeleton_walk){
 			image_index = 0;
+			x_vel = choose(1,-1);
 		}
 	
 		sprite_index = spr_skeleton_walk;
@@ -104,6 +112,21 @@ switch (state){
 		}
 		
 		break;	
+	#endregion
+	#region attack
+	case "attack":
+		x_vel = 0;
+		if(sprite_index != spr_skeleton_attack){
+			image_index	= 0;
+		}
+		
+		sprite_index = spr_skeleton_attack;
+		
+		//exiting state
+		if(image_index	> image_number -1){
+			state = "idle";
+		}
+		
 	#endregion
 }
 
