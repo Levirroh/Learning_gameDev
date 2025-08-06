@@ -6,11 +6,11 @@ if(!ground){
 	y_vel += GRAVITY * mass;
 }
 //forcing states
-
+/*
 if(keyboard_check_pressed(ord("E"))){
 	state = "attack";
 }
-/*
+
 if(keyboard_check_pressed(ord("P"))){
 	state = "idle";
 }
@@ -23,6 +23,8 @@ if(keyboard_check_pressed(ord("I"))){
 */
 
 #endregion
+
+
 //state machine
 switch (state){
 	#region idle
@@ -49,7 +51,8 @@ switch (state){
 			timer_state = 0;
 		}
 		
-		
+		scr_attack_player(obj_player, dist, x_scale)
+
 		break;
 	#endregion
 	#region walking
@@ -68,7 +71,8 @@ switch (state){
 			timer_state = 0;
 		}
 		
-		
+		scr_attack_player(obj_player, dist, x_scale)
+
 		break;
 		
 	#endregion

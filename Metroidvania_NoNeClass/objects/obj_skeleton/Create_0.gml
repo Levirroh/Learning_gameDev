@@ -8,3 +8,6 @@ max_velx = 1;
 max_vely = 1;
 
 timer_state = 0;
+
+dist = 30;
+
