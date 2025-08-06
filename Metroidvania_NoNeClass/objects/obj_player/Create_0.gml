@@ -19,7 +19,7 @@ max_vely = 6;
 
 mass = 1;
 
-show_state = true;
+show_state = false;
 
 combo = 0;
 damage = noone;

@@ -126,12 +126,26 @@ switch (state){
 		
 		sprite_index = spr_skeleton_attack;
 		
+		//creating damage
+		//ta no frame, nao existe a hitbox, nao acabou o ataque e pode atacar
+		if(image_index >= 8 && damage == noone && image_index < 12 && can_attack){
+			damage = instance_create_layer(x + sprite_width/2, y - sprite_height/3, layer, obj_hitbox);
+			damage.damage = attack;
+			damage.parent_entity = id;
+			can_attack = false;
+		}
+		
+		//se a hitbox existe, o dano já acabou
+		if(damage != noone && image_index >= 12){
+			instance_destroy(damage, false);
+			damage = noone;
+		}
+		
 		//exiting state
-		if(image_index	> image_number -1){
+		if(image_index > image_number-1){
+			can_attack = true;
 			state = "idle";
 		}
 		
 	#endregion
 }
-
-show_debug_message(timer_state)

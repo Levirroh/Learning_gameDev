@@ -11,3 +11,9 @@ timer_state = 0;
 
 dist = 30;
 
+damage = noone;
+attack = 1;
+
+show_state = false;
+
+can_attack = true;

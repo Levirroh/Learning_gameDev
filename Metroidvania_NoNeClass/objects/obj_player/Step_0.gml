@@ -11,6 +11,10 @@ attacking = keyboard_check(ord("J"));
 dash = keyboard_check(vk_lshift);
 #endregion	
 
+if(keyboard_check(vk_tab)){
+	state = "hit"
+}
+
 #region  buffer
 
 if(attack_buffer > 0){
@@ -31,6 +35,10 @@ if(!ground){
 }
 
 #endregion
+
+if(current_life <= 0){
+	state = "dead"
+}
 
 //initial state machine
 switch(state){
@@ -192,7 +200,37 @@ switch(state){
 		if(image_index >= image_number - 1){
 			state = "idle";
 		}
+	break;
 	#endregion
+	#region hit
+	case "hit":
+		if(sprite_index != spr_player_hit){
+			sprite_index = spr_player_hit;
+			image_index = 0;
+		}
+		sprite_index = spr_player_hit;
+
+		if(image_index >= image_number - 1){
+			state = "idle";
+		}
+		break;
+	#endregion
+	#region dead
+	case "dead":
+		if(sprite_index != spr_player_dying){
+			sprite_index = spr_player_dying;
+			image_index = 0;
+		}
+		sprite_index = spr_player_dying;
+
+		if(image_index >= image_number - 1){
+			room_restart();
+		}
+		break;
+	#endregion
+	default:
+		state = "idle";
+		break;
 }
 
 if(keyboard_check(vk_enter)) room_restart();
