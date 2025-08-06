@@ -11,4 +11,4 @@ if(position_meeting(mouse_x, mouse_y, id)){
 	}
 }
 
-image_speed = img_spd / game_get_speed(gamespeed_fps);
+image_speed = img_spd / game_get_speed(gamespeed_fps) * global.vel_mult;

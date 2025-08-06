@@ -37,7 +37,7 @@ for(var i = 0; i < size; i++){
 		}
 	}
 
-
+}
 //destroying lists
 ds_list_destroy(possible_targets);
 ds_list_destroy(damaged_list);

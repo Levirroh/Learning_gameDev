@@ -3,7 +3,7 @@ var ground = place_meeting(x, y+1, obj_wall);
 
 //gravity
 if(!ground){
-	y_vel += GRAVITY * mass;
+	y_vel += GRAVITY * mass * global.vel_mult;
 }
 //forcing states
 /*

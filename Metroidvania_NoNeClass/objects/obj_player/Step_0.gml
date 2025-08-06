@@ -27,12 +27,12 @@ if(attack_buffer > 0){
 
 #region movement
 // movement 
-x_vel = (right - left) * max_velx;
+x_vel = (right - left) * max_velx * global.vel_mult;
 
 //gravity
 if(!ground){
 	if(y_vel < max_vely * 2){
-		y_vel += GRAVITY * mass;
+		y_vel += GRAVITY * mass * global.vel_mult;
 	}
 }
 
@@ -228,6 +228,12 @@ switch(state){
 	#endregion
 	#region dead
 	case "dead":
+		
+		if(instance_exists(obj_game_controller)){
+			with(obj_game_controller){
+				game_over = true;
+			}
+		}
 		if(sprite_index != spr_player_dying){
 			sprite_index = spr_player_dying;
 			image_index = 0;
@@ -247,7 +253,7 @@ switch(state){
 		break;
 }
 
-if(keyboard_check(vk_enter)) room_restart();
+if(keyboard_check(vk_enter)) gameddd_restart();
 if(keyboard_check(vk_escape)) game_end();
 
 
