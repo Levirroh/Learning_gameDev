@@ -36,9 +36,6 @@ if(!ground){
 
 #endregion
 
-if(current_life <= 0){
-	state = "dead"
-}
 
 //initial state machine
 switch(state){
@@ -208,10 +205,22 @@ switch(state){
 			sprite_index = spr_player_hit;
 			image_index = 0;
 		}
+		
+		//stops when hit
+		x_vel = 0;
+		y_vel = 0;
+
+
 		sprite_index = spr_player_hit;
 
-		if(image_index >= image_number - 1){
-			state = "idle";
+		if(current_life > 0){
+			if(image_index >= image_number - 1){
+				state = "idle";
+			}
+		} else {
+			if(image_index >= image_number - 1){
+				state = "dead"
+			}
 		}
 		break;
 	#endregion
@@ -222,9 +231,13 @@ switch(state){
 			image_index = 0;
 		}
 		sprite_index = spr_player_dying;
-
+		//stops while dying
+		x_vel = 0;
+		y_vel = 0;
+		
 		if(image_index >= image_number - 1){
-			room_restart();
+			image_index = image_number - 1
+			//room_restart();
 		}
 		break;
 	#endregion

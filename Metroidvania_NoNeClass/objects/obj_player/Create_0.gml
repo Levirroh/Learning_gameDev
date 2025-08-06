@@ -11,7 +11,7 @@ cam.target = id;
 
 event_inherited();
 room_spd = game_get_speed(gamespeed_fps);
-max_life = 10;
+max_life = 2;
 current_life = max_life;
 
 max_velx = 4;
