@@ -98,6 +98,7 @@ switch (state){
 	#endregion
 	#region dead
 	case "dead":
+		x_vel = 0
 		if(sprite_index != spr_skeleton_dead){
 			image_index	= 0;
 		}

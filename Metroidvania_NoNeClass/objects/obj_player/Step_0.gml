@@ -11,14 +11,16 @@ attacking = keyboard_check(ord("J"));
 dash = keyboard_check(vk_lshift);
 #endregion	
 
+//forcing states
+/*
 if(keyboard_check(vk_tab)){
 	state = "hit"
 }
-
+*/
 #region  buffer
 
 if(attack_buffer > 0){
-	attack_buffer -= 4;
+	attack_buffer -= 10;
 }
 
 #endregion
@@ -233,7 +235,6 @@ switch(state){
 		sprite_index = spr_player_dying;
 		//stops while dying
 		x_vel = 0;
-		y_vel = 0;
 		
 		if(image_index >= image_number - 1){
 			image_index = image_number - 1
