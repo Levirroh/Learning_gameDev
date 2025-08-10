@@ -80,6 +80,7 @@ switch (state){
 	case "hit":
 		if(sprite_index != spr_skeleton_hit){// is not on hit state yet, frame must be 0
 			image_index	= 0;
+			//screen_shake(1);
 		}
 		sprite_index = spr_skeleton_hit;
 		

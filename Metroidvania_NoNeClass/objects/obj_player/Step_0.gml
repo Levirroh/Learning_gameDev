@@ -206,6 +206,8 @@ switch(state){
 		if(sprite_index != spr_player_hit){
 			sprite_index = spr_player_hit;
 			image_index = 0;
+			//shaking screen
+			screen_shake(4);
 		}
 		
 		//stops when hit

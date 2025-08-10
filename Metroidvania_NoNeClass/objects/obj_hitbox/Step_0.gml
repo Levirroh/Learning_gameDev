@@ -34,6 +34,11 @@ for(var i = 0; i < size; i++){
 			damaged.state = "hit";
 			damaged.image_index = 0;
 			damaged.current_life -= damage;
+			
+			//checking if its from enemy_parent to shake screen when enemy is getting hit
+			if(object_get_parent(damaged.object_index) == obj_enemy_parent){
+				screen_shake(2);
+			}
 		}
 	}
 
