@@ -18,6 +18,7 @@
     {"name":"Sprites","order":1,"path":"folders/Sprites.yy",},
     {"name":"enemies","order":4,"path":"folders/Sprites/enemies.yy",},
     {"name":"skeleton","order":1,"path":"folders/Sprites/enemies/skeleton.yy",},
+    {"name":"level","order":5,"path":"folders/Sprites/level.yy",},
     {"name":"misc","order":3,"path":"folders/Sprites/misc.yy",},
     {"name":"player","order":1,"path":"folders/Sprites/player.yy",},
     {"name":"air","order":4,"path":"folders/Sprites/player/air.yy",},
@@ -39,6 +40,7 @@
     {"name":"rm_init","order":1,"path":"rooms/rm_init/rm_init.yy",},
     {"name":"scr_attack_player","order":1,"path":"scripts/scr_attack_player/scr_attack_player.yy",},
     {"name":"scr_functions","order":2,"path":"scripts/scr_functions/scr_functions.yy",},
+    {"name":"spr_bg","order":2,"path":"sprites/spr_bg/spr_bg.yy",},
     {"name":"spr_hitbox","order":1,"path":"sprites/spr_hitbox/spr_hitbox.yy",},
     {"name":"spr_player_attack_02","order":1,"path":"sprites/spr_player_attack_02/spr_player_attack_02.yy",},
     {"name":"spr_player_attack_03","order":2,"path":"sprites/spr_player_attack_03/spr_player_attack_03.yy",},
@@ -49,5 +51,7 @@
     {"name":"spr_skeleton_dead","order":2,"path":"sprites/spr_skeleton_dead/spr_skeleton_dead.yy",},
     {"name":"spr_skeleton_hit","order":1,"path":"sprites/spr_skeleton_hit/spr_skeleton_hit.yy",},
     {"name":"spr_skeleton_walk","order":3,"path":"sprites/spr_skeleton_walk/spr_skeleton_walk.yy",},
+    {"name":"spr_tile02","order":1,"path":"sprites/spr_tile02/spr_tile02.yy",},
+    {"name":"tl_background","order":1,"path":"tilesets/tl_background/tl_background.yy",},
   ],
 }
